@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+
+        body{
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: gold;
+        }
+
+
+    </style>
+</head>
+<body>
+    <center><h1>My Calculator</h1></center>
+    <form method="POST">
+        <input name="a" placeholder="First number">
+        <select name="operation">
+            <option value="add">+add</option>
+            <option value="subtract">-subtract</option>
+            <option value="multiply">*multiply</option>
+            <option value="divide">/divide</option>
+        </select>
+        <input name="b" placeholder="Second number">
+        <center><button style="margin-top: 10px;">Do the Math</button></center>
+    </form>
+    <!-- <label id="answer">Answer</label> -->
+    {% if result is not none %}
+        <div class="ok">Answer: {{ result }}</div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <h3>Calculation History</h3>
+
+    {% for equation in equations %}
+        <p>{{ equation }}</p>
+    {% endfor %}
+</body>
+</html>
